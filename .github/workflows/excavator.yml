@@ -1,17 +1,36 @@
 on:
   workflow_dispatch:
   schedule:
-    # run every 4 hours
-    - cron: '20 */4 * * *'
+    # Daily run. GitHub Actions cron uses UTC.
+    # 12:20 UTC ~= 03:20 Pacific during Standard Time (PST, UTC-8).
+    # During Daylight Saving Time (PDT, UTC-7) this will run at ~04:20 local.
+    - cron: '20 12 * * *'
+
 name: Excavator
+
+# Prevent overlapping runs (important for auto-PR workflows).
+concurrency:
+  group: excavator
+  cancel-in-progress: true
+
+# Explicitly grant the built-in GITHUB_TOKEN the rights needed to push updates / open PRs.
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   excavate:
     name: Excavate
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@main
+
       - name: Excavate
         uses: ScoopInstaller/GithubActions@main
         env:
+          # This is GitHub's built-in token (you don't create it manually).
+          # Many actions need it to create commits/PRs.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # Action-specific: skip apps that are already up-to-date.
           SKIP_UPDATED: 1
