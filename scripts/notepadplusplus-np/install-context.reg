@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Notepad++ (NP)]
+@="Open with &Notepad++ (NP)"
+"Icon"="$npp"
+
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Open with &Notepad++ (NP)\command]
+@="\"$npp\" \"%1\""
