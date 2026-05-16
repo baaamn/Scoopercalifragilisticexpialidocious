@@ -13,16 +13,16 @@ An extraordinarily wonderful and no nonsense super duper scoop bucket that is at
 Add this bucket to your Scoop installation:
 
 ```pwsh
-scoop bucket add Scooper https://github.com/baaamn/Scoopercalifragilisticexpialidocious
+scoop bucket add Super-Scoop https://github.com/baaamn/Scoopercalifragilisticexpialidocious
 
 # View available packages
-scoop search Scooper
+scoop search Super-Scoop
 
 # Install a package
-scoop install Scooper/<package-name>
+scoop install Super-Scoop/<package-name>
 
 # Update all packages from this bucket
-scoop update Scooper
+scoop update Super-Scoop
 ```
 
 ---
@@ -48,14 +48,14 @@ scoop update Scooper
 After this bucket is added, install packages using:
 
 ```pwsh
-scoop install Scooper/<package-name>
+scoop install Super-Scoop/<package-name>
 ```
 
 **Example:**
 ```pwsh
-scoop install Scooper/everything-alpha
-scoop install Scooper/directory-opus
-scoop install Scooper/notepadplusplus-np
+scoop install Super-Scoop/everything-alpha
+scoop install Super-Scoop/directory-opus
+scoop install Super-Scoop/notepadplusplus-np
 ```
 
 ---
